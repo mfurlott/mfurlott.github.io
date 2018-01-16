@@ -19,58 +19,74 @@
     <![endif]-->
 </head>
 <style media="screen">
-  .height1{
-    600px;
+.height{
+  height: 100px;
+}
+.height{
+  height: 400px;
+}
+  .blue{
+    background-color: blue;
   }
 
-  .height2{
-    150px;
+  .pink{
+    background-color: pink;
+  }
+
+  .orange{
+    background-color: orange;
+  }
+
+  .yellow{
+    background-color: yellow;
+  }
+
+  .green{
+    background-color: green;
   }
 
   .purple{
     background-color: purple;
   }
-  .blue{
-    background-color: blue;
+
+  .red{
+    background-color: red;
   }
-  .green{
-    background-color: green;
+  .white{
+    background-color: white;
   }
+.black{
+  background-color: black;
+}
 </style>
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-3 height1 purple"></div>
+      <div class="col-md-12 blue height1"></div>
     </div>
-    <div class="col-md-9 height1 blue"></div>
-</div>
+    <div class="row">
+    <div class="col-md-12 black height 2"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1 pink"></div>
+      <div class="col-md-1 orange"></div>
+      <div class="col-md-1 yellow"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1 green"></div>
+      <div class="col-md-1 purple"></div>
+      <div class="col-md-1 red"></div>
+    </div>
+  <div class="row">
+    <div class="col-md-12 white"></div>
 
-<div class="row">
-  <div class="col-md-12 height2 green"></div>
+    </div>
+  </div>
 
-</div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      //this function gets a random color between 0 and 255
-      function getRandomColor() {
-        return Math.floor(Math.random() * 255);
-      }
-//get all the elements (divs) with the class .randomcolor
-      var randomColor = $(".randomColor");
-//loop through all elements
-//for each element change the css background to match the element
-      $.each(randomColor, function(index, item) {
-        $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
-      })
 </html>
