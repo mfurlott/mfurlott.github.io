@@ -1,0 +1,52 @@
+Dogs
+
+[
+  {
+    "class":"item active",
+    "caption": "Fred",
+    "species": "dragon",
+    "color": "purple",
+    "age": "200",
+    "temperment": "grumpy; "
+
+
+
+
+  },
+  {
+    "class":"item",
+    "caption":"Bob",
+    "species": "unicorn",
+    "color": "rainbow",
+    "age": "35",
+    "temperment": "cheerful "
+
+  },
+  {
+    "class":"item",
+    "caption":"Glenda",
+    "species": "pheonix",
+    "color": "red",
+    "age": "22",
+    "temperment": "shy",
+
+  },
+  {
+    "class":"item",
+    "caption":"Gilligan",
+    "species": "Gryffon",
+    "color": "brown",
+    "age": "321",
+    "temperment": "snobby"
+
+  },
+  {
+    "class":"item",
+    "caption":"Susan",
+    "species": "centaur",
+    "color": "pink",
+    "temperment": "pretentious",
+
+  }
+
+]
