@@ -73,9 +73,14 @@
     $(document).ready(function(){
         $(".buttonOne").on("click", function(){
           //$("myOutput").append("button clicked...");
-          //$(body).css("background-color", "RGB" )
+          setInterval(function(){
+            $("body").css("background-color", "RGB(" + getRandomColor() + "))
+          })
+
+          $(body).css("background-color", "RGB" )(" +getRandomColor() + "," +
+        getRandomColor() + "," + getRandomColor() + ",");
           //alert("button Clicked!");
-          $(".modal").modal("show");
+          //$(".modal").modal("show");
 
         })
 
