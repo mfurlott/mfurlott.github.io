@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css"
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 logo">Chindogu.com
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 footer"></div>
+        <div class = "selectContainer flexspaceAround">
+          <div class = "selectLabel">
+            Choose Another Product Type:
+          </div>
+        </div>
+        <select class = "form-control" name= "">
+
+
+
+        </select>
+        <hr>
+        <span>
+          © 2018 Chindogu.com
+
+        </span>
+      </div>
+      </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+
+function getAds(){
+
+  var ads = [
+            "https://andersonguelphjs.github.io/class/week11/img/ads/ad1.jpeg",
+            "https://andersonguelphjs.github.io/class/week11/img/ads/ad2.jpg",
+            "https://andersonguelphjs.github.io/class/week11/img/ads/ad3.jpeg",
+            "https://andersonguelphjs.github.io/class/week11/img/ads/ad4.jpeg",
+            "https://andersonguelphjs.github.io/class/week11/img/ads/ad5.jpg",
+            "https://andersonguelphjs.github.io/class/week11/img/ads/ad6.png",
+            "https://andersonguelphjs.github.io/class/week11/img/ads/ad7.png",
+            "https://andersonguelphjs.github.io/class/week11/img/ads/ad8.jpg",
+            "https://andersonguelphjs.github.io/class/week11/img/ads/ad9.png",
+            "https://andersonguelphjs.github.io/class/week11/img/ads/ad10.jpeg"
+          ];
+
+        //write three ads on either side, using a random url from the ads array.
+for(var 1 = 0;1<3;i++)0{
+ $(".adsLeft").append("<div class = 'ad'><img src='"+ads[Math.floor(Math.random()*10)]+"' /></div>");
+
+ $(".adsRight").append("<div class = 'ad'><img src='"+ads[Math.floor(Math.random()*10)]+"' /></div>");
+
+};
+
+
+
+function getOptions(){
+  var html="";
+  var options = {
+       "Anderson 1": "https://andersonguelphjs.github.io/class/week11/myJSON.json",
+       "Anderson 2": "https://andersonguelphjs.github.io/class/week11/myJSON2.json"
+     };
+
+     for(var key in options){
+       html="<option value='"+options[key]+"'>"+key+"</option>";
+     }
+     $(".selectContainer").find("select").html(html);
+
+}
+//will containt all the events.
+function initevents(){
+  $(".selectContainer").find("select").on("change", function(){
+    var val = $(this).val();
+
+    if(val){
+      $.get(val)
+  .done(function(data){
+    console.log("success get select Json!");
+    console.dir(data){
+      writeJSONToDOM(data.sheet1);
+
+    })
+  .fail(function(data){
+    console.log("fail to get select Json!");
+    console.dir(data);
+  })
+    //alert("value "+val);
+  })
+
+}
+
+  function writeJSONToDOM(d){
+var html="";
+
+for(var jsonObj in d){
+  html+="<div data-id='"+jsonObj+"' class='itemContainer'>";
+  for (var key in d[jsonObj]){//loop through the keys of each object
+    if (key==="itemId"){
+      continue;//continue mean skip this iteration of the loop
+    }
+    if (d[jsonObj][key].indexOf("github")!==-1){
+      //if 'github' text appears in the value (-1 means not found)
+      html+="<div class='imageContainer'><img src='https://"+d[jsonObj][key]+"'></div>";
+    }
+    else{//otherwise use the key as teh class and teh value as teh text
+      html+="<div class='"+key+"'>"+d[jsonObj][key]+"</div>";
+    }
+  }//inner loop
+
+ html+="<div class='buttonContainer'>";
+ html+="<button type='button' class='buyButton btn-default btn'>Buy</button>";
+ html+="</div>";
+ html+="</div>";
+
+}//first for loop
+
+  //loop this here
+
+      $(."output").html(html);
+}
+    %(document).ready(function(){
+      getOptions();
+      getAds();
+      initEvents();
+      $(".selectJSON").find("select").change();
+      $("body").fadeIn();
+    })
+
+
+    </script>
+  </body>
+</html>
